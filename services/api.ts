@@ -1,6 +1,6 @@
 import { FinancialInputs, CalculationResult, HistoryEntry } from '../types';
 
-const API_BASE_URL = (import.meta as any).env?.VITE_API_URL || 'http://127.0.0.1:8000/api';
+const API_BASE_URL = 'https://financial-health-backend-two.vercel.app/api';
 
 export interface AuthUser {
   id: number;
