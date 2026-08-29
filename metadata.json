@@ -1,0 +1,5 @@
+{
+  "name": "NEW 1 Financial Health Diagnostic",
+  "description": "A deterministic, rule-based financial health platform calculating Cashflow, DSR, Runway, and more.",
+  "requestFramePermissions": []
+}
