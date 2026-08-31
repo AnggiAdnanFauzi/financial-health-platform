@@ -588,6 +588,13 @@ const AppContent: React.FC = () => {
         localStorage.setItem(userPrefix + 'results', JSON.stringify(calculated));
 
         hasLoaded = true;
+      } else {
+        // If there's no latest diagnostic in the cloud (e.g., deleted by admin), clear local cache
+        setInputs(null);
+        setResults(null);
+        localStorage.removeItem(userPrefix + 'inputs');
+        localStorage.removeItem(userPrefix + 'results');
+        hasLoaded = false;
       }
     } catch (e) {
       console.warn('Failed fetching latest user diagnostic from cloud', e);
