@@ -818,6 +818,15 @@ const AppContent: React.FC = () => {
     setIsLoggedIn(false);
     setUserRole('user');
     localStorage.removeItem('fhd_user_role');
+    
+    // Clear demo data on logout so it doesn't persist across sessions
+    if (currentUserEmail === 'demo@gmail.com') {
+      const userPrefix = 'fhd_user_demo_gmail_com_';
+      localStorage.removeItem(userPrefix + 'inputs');
+      localStorage.removeItem(userPrefix + 'results');
+      localStorage.removeItem('fhd_history');
+    }
+
     setCurrentUserEmail('');
     setInputs(null);
     setResults(null);
