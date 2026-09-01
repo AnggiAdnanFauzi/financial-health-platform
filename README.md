@@ -33,8 +33,8 @@ Follow these steps to run the project locally on your machine.
    ```
 3. Setup Environment Variables:
    - Duplicate `.env.example` and rename it to `.env`
-   - Ask the developer for the secret Aiven Database & Cloudinary credentials.
-   - Fill in the values in your new `.env` file.
+   - Create your own MySQL Database (e.g., via Aiven or local XAMPP) and Cloudinary account.
+   - Fill in the respective credentials and API keys in your new `.env` file.
 4. Generate the Application Key:
    ```bash
    php artisan key:generate
@@ -59,7 +59,7 @@ Follow these steps to run the project locally on your machine.
    ```
 3. Setup Environment Variables:
    - Create a `.env` file in the root directory.
-   - Ask the developer for the required Frontend keys (e.g., Gemini API Key if used).
+   - If required (e.g., Gemini API), create your own API key and add it to the `.env` file.
 4. Start the Vite Development Server:
    ```bash
    npm run dev
