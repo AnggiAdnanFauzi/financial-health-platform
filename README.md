@@ -1,83 +1,83 @@
-# Enterprise Financial Health Diagnostic Platform
+# Platform Diagnostik Kesehatan Finansial
 
-A modern, full-stack application for assessing personal and corporate financial health. Built with a decoupled architecture featuring a React SPA frontend and a robust Laravel REST API backend.
+Sebuah aplikasi *full-stack* modern untuk menilai kesehatan finansial pribadi maupun perusahaan. Dibangun dengan arsitektur yang terpisah (decoupled) menggunakan antarmuka React SPA dan backend Laravel REST API yang tangguh.
 
-## 🚀 Tech Stack
+## 🚀 Teknologi yang Digunakan (Tech Stack)
 
 **Frontend:**
 - React (Vite)
 - TypeScript
-- Tailwind CSS (Premium UI/UX)
+- Tailwind CSS (UI/UX Premium)
 - Lucide Icons & Framer Motion
 
 **Backend:**
 - Laravel 11.x (PHP 8.2+)
-- MySQL (Cloud Database via Aiven)
-- Cloudinary (Image & Asset CDN)
+- MySQL (Database Cloud via Aiven atau XAMPP Lokal)
+- Cloudinary (Penyimpanan Gambar & Aset)
 
 ---
 
-## 🛠️ Installation & Local Setup
+## 🛠️ Instalasi & Persiapan Lokal
 
-Follow these steps to run the project locally on your machine.
+Ikuti langkah-langkah berikut untuk menjalankan proyek ini di komputer Anda.
 
-### 1. Backend (Laravel) Setup
+### 1. Persiapan Backend (Laravel)
 
-1. Navigate to the backend directory:
+1. Masuk ke dalam folder backend:
    ```bash
    cd backend
    ```
-2. Install PHP dependencies via Composer:
+2. Instal dependensi PHP menggunakan Composer:
    ```bash
    composer install
    ```
-3. Setup Environment Variables:
-   - Duplicate `.env.example` and rename it to `.env`
-   - Create your own MySQL Database (e.g., via Aiven or local XAMPP) and Cloudinary account.
-   - Fill in the respective credentials and API keys in your new `.env` file.
-4. Generate the Application Key:
+3. Atur Variabel Environment (Lingkungan):
+   - Gandakan file `.env.example` dan ubah namanya menjadi `.env`
+   - Buatlah akun Database MySQL Anda sendiri (misalnya lewat Aiven atau XAMPP lokal) dan akun Cloudinary.
+   - Isi kunci rahasia dan *password* dari akun-akun tersebut ke dalam file `.env` baru Anda.
+4. Buat Application Key (Kunci Aplikasi):
    ```bash
    php artisan key:generate
    ```
-5. Run Migrations & Seeders:
-   *(This will automatically create the database tables and inject the default Super Admin account)*
+5. Jalankan Migrasi & Seeder Database:
+   *(Perintah ini akan secara otomatis membuat struktur tabel database dan menyuntikkan akun Super Admin bawaan)*
    ```bash
    php artisan migrate --seed
    ```
-6. Start the Laravel Development Server:
+6. Jalankan Server Development Laravel:
    ```bash
    php artisan serve
    ```
-   *The backend API will run on http://localhost:8000*
+   *Backend API akan berjalan di http://localhost:8000*
 
-### 2. Frontend (React) Setup
+### 2. Persiapan Frontend (React)
 
-1. Open a new terminal and navigate to the project root directory.
-2. Install Node.js dependencies:
+1. Buka terminal baru dan pastikan Anda berada di luar (folder utama proyek).
+2. Instal dependensi Node.js:
    ```bash
    npm install
    ```
-3. Setup Environment Variables:
-   - Create a `.env` file in the root directory.
-   - If required (e.g., Gemini API), create your own API key and add it to the `.env` file.
-4. Start the Vite Development Server:
+3. Atur Variabel Environment:
+   - Buat sebuah file bernama `.env` di dalam folder utama.
+   - Jika diperlukan (misalnya API Gemini), buatlah API Key Anda sendiri dan masukkan ke dalam file `.env` tersebut.
+4. Jalankan Server Development Vite:
    ```bash
    npm run dev
    ```
-   *The frontend will run on http://localhost:3000 (or another port specified by Vite)*
+   *Frontend akan berjalan di http://localhost:3000 (atau port lain yang ditentukan oleh Vite)*
 
 ---
 
-## 🔐 Default Admin Account
+## 🔐 Akun Admin Bawaan
 
-After running `php artisan migrate --seed`, you can log in to the Admin Panel using the following credentials:
+Setelah Anda menjalankan perintah `php artisan migrate --seed` di atas, Anda bisa langsung masuk (Login) ke Panel Admin menggunakan akun berikut:
 
 - **Email:** `admin@financialhealth.com`
 - **Password:** `admin123`
 
 ---
 
-## ☁️ Deployment Notes
+## ☁️ Catatan Deployment (Hosting)
 
-- The Frontend is optimized for Vercel deployment (SPA routing fallback is configured via `vercel.json`).
-- The Backend requires a PHP-compatible hosting environment (e.g., Vercel PHP, Heroku, Render, or a VPS).
+- Frontend sudah dioptimalkan untuk di-hosting di Vercel (Routing khusus SPA sudah diatur melalui file `vercel.json`).
+- Backend membutuhkan server yang mendukung PHP (misalnya Vercel PHP, Heroku, Render, VPS, atau Shared Hosting).
