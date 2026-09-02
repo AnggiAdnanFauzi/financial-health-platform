@@ -4,7 +4,7 @@ import {
   ArrowLeft, CheckCircle, AlertTriangle, TrendingUp, Calendar, 
   ExternalLink, UserCheck, ShieldAlert, FileSpreadsheet, X, Sparkles,
   Plus, Edit3, Crown, UserPlus, CheckSquare, Square,
-  Sun, Moon, Globe
+  Sun, Moon, Globe, LogOut
 } from 'lucide-react';
 import { 
   apiGetAdminStats, apiGetAdminUsers, apiUpdateUserRole, 
@@ -490,35 +490,35 @@ export const AdminDashboard: React.FC<AdminDashboardProps> = ({
       <header className={`sticky top-0 z-40 border-b backdrop-blur-xl ${
         isDark ? 'bg-[#0b1120]/80 border-slate-800/80 shadow-2xl' : 'bg-white/85 border-slate-200/90 shadow-sm'
       }`}>
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-20 flex items-center justify-between">
+        <div className="max-w-7xl mx-auto px-3 sm:px-6 lg:px-8 h-20 flex items-center justify-between gap-2">
           
           {/* Logo & Governance Badge */}
-          <div className="flex items-center gap-3">
+          <div className="flex items-center gap-2 sm:gap-3 flex-1 min-w-0">
             <img
               src="/logo.png"
               alt="Financial Health logo"
-              className="w-10 h-10 rounded-xl object-contain shadow-md shadow-blue-500/20"
+              className="w-8 h-8 sm:w-10 sm:h-10 rounded-xl object-contain shadow-md shadow-blue-500/20 shrink-0"
             />
-            <div>
+            <div className="min-w-0">
               <div className="flex items-center gap-2">
-                <span className="font-extrabold text-base tracking-tight bg-gradient-to-r from-purple-400 via-indigo-300 to-blue-400 bg-clip-text text-transparent">
+                <span className="font-extrabold text-sm sm:text-base tracking-tight bg-gradient-to-r from-purple-400 via-indigo-300 to-blue-400 bg-clip-text text-transparent truncate">
                   Enterprise Health Admin Console
                 </span>
-                <span className="text-[10px] px-2 py-0.5 rounded-full font-bold uppercase tracking-wider bg-purple-500/10 text-purple-400 border border-purple-500/20">
+                <span className="hidden sm:inline-block text-[10px] px-2 py-0.5 rounded-full font-bold uppercase tracking-wider bg-purple-500/10 text-purple-400 border border-purple-500/20 shrink-0">
                   Super Admin
                 </span>
               </div>
-              <p className="text-[11px] text-slate-400">
+              <p className="hidden sm:block text-[11px] text-slate-400 truncate">
                 Aiven MySQL Cloud &bull; Cloudinary CDN Connected
               </p>
             </div>
           </div>
 
           {/* Quick Actions */}
-          <div className="flex items-center gap-2.5">
+          <div className="flex items-center gap-1.5 sm:gap-2.5 shrink-0">
             <button
               onClick={onSwitchToUserView}
-              className={`flex items-center gap-2 px-3.5 py-2 rounded-xl text-xs font-bold border transition-all cursor-pointer ${
+              className={`flex items-center gap-2 px-2 sm:px-3.5 py-2 rounded-xl text-xs font-bold border transition-all cursor-pointer ${
                 isDark 
                   ? 'bg-slate-800/60 hover:bg-slate-750 border-slate-700 text-slate-200' 
                   : 'bg-white hover:bg-slate-100 border-slate-300 text-slate-700 shadow-xs'
@@ -526,13 +526,13 @@ export const AdminDashboard: React.FC<AdminDashboardProps> = ({
               title="Lihat Tampilan Pengguna"
             >
               <ArrowLeft size={15} />
-              <span className="hidden sm:inline">{t.switchToUser}</span>
+              <span className="hidden lg:inline">{t.switchToUser}</span>
             </button>
 
             {/* Light/Dark mode switcher */}
             <button
               onClick={onToggleDark}
-              className={`p-2.5 rounded-xl border transition-all duration-300 flex items-center justify-center cursor-pointer ${
+              className={`p-2 sm:p-2.5 rounded-xl border transition-all duration-300 flex items-center justify-center cursor-pointer ${
                 isDark 
                   ? 'border-slate-800 bg-slate-900/40 text-amber-400 hover:text-amber-300 hover:bg-slate-800' 
                   : 'border-slate-200 bg-slate-50 text-slate-700 hover:text-slate-900 hover:bg-slate-100'
@@ -545,31 +545,32 @@ export const AdminDashboard: React.FC<AdminDashboardProps> = ({
             {/* Language selector */}
             <button 
               onClick={onToggleLang}
-              className={`flex items-center gap-1.5 px-3.5 py-2.5 rounded-xl border text-xs font-bold transition-all cursor-pointer ${
+              className={`flex items-center gap-1.5 px-2 sm:px-3.5 py-2 sm:py-2.5 rounded-xl border text-xs font-bold transition-all cursor-pointer ${
                 isDark 
                   ? 'border-slate-800 bg-slate-900/40 text-slate-300 hover:bg-slate-800' 
                   : 'border-slate-200 bg-slate-50 text-slate-700 hover:bg-slate-100'
               }`}
             >
               <Globe size={13} />
-              <span>{lang === 'en' ? 'EN' : 'ID'}</span>
+              <span className="hidden sm:inline">{lang === 'en' ? 'EN' : 'ID'}</span>
             </button>
 
             <button
               onClick={onLogout}
-              className="px-3.5 py-2 rounded-xl text-xs font-bold bg-red-500/10 hover:bg-red-500/20 border border-red-500/20 text-red-400 transition-all cursor-pointer"
+              className="px-2 sm:px-3.5 py-2 sm:py-2.5 flex items-center gap-1.5 rounded-xl text-xs font-bold bg-red-500/10 hover:bg-red-500/20 border border-red-500/20 text-red-400 transition-all cursor-pointer"
             >
-              {t.logout}
+              <LogOut size={13} className="sm:hidden" />
+              <span className="hidden sm:inline">{t.logout}</span>
             </button>
           </div>
 
         </div>
 
         {/* Tab Navigation */}
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex gap-2 border-t border-slate-200/5 dark:border-slate-800/50">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex gap-2 overflow-x-auto scrollbar-hide border-t border-slate-200/5 dark:border-slate-800/50">
           <button
             onClick={() => setActiveTab('overview')}
-            className={`py-3.5 px-4 text-xs font-bold flex items-center gap-2 border-b-2 transition-all cursor-pointer ${
+            className={`py-3.5 px-4 text-xs font-bold flex items-center gap-2 border-b-2 transition-all whitespace-nowrap shrink-0 cursor-pointer ${
               activeTab === 'overview'
                 ? 'border-purple-500 text-purple-400 font-extrabold'
                 : 'border-transparent text-slate-400 hover:text-slate-200'
@@ -581,7 +582,7 @@ export const AdminDashboard: React.FC<AdminDashboardProps> = ({
 
           <button
             onClick={() => setActiveTab('users')}
-            className={`py-3.5 px-4 text-xs font-bold flex items-center gap-2 border-b-2 transition-all cursor-pointer ${
+            className={`py-3.5 px-4 text-xs font-bold flex items-center gap-2 border-b-2 transition-all whitespace-nowrap shrink-0 cursor-pointer ${
               activeTab === 'users'
                 ? 'border-purple-500 text-purple-400 font-extrabold'
                 : 'border-transparent text-slate-400 hover:text-slate-200'
@@ -598,7 +599,7 @@ export const AdminDashboard: React.FC<AdminDashboardProps> = ({
 
           <button
             onClick={() => setActiveTab('diagnostics')}
-            className={`py-3.5 px-4 text-xs font-bold flex items-center gap-2 border-b-2 transition-all cursor-pointer ${
+            className={`py-3.5 px-4 text-xs font-bold flex items-center gap-2 border-b-2 transition-all whitespace-nowrap shrink-0 cursor-pointer ${
               activeTab === 'diagnostics'
                 ? 'border-purple-500 text-purple-400 font-extrabold'
                 : 'border-transparent text-slate-400 hover:text-slate-200'
